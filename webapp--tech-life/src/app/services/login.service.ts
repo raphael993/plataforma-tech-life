@@ -7,22 +7,23 @@ export class LoginService {
 
   constructor() { }
 
-  login(user: any): boolean {
+  login(user: any): any {
     const testeUser = {
-      username: "bia",
-      password: "123"
+      username: 'bia',
+      password: '123',
+      role: 'prof'
     }
 
     if (user.username === testeUser.username && user.password === testeUser.password) {
-      return true
+      return testeUser;
     }
 
-
-    return false
-
+    return null;
   }
 
 
-  logout() { }
+  logout(): boolean {
+    return true;
+   }
 
 }

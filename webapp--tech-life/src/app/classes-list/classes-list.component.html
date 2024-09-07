@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        Lista de Aulas
+    </div>
+</nav>
+
+<table class="table table-dark table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Titulo</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">#</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let class of classList;">
+            <th>{{ class.titulo }}</th>
+            <td>{{ class.descricao }}</td>
+            <td>
+                <div class="btn-list">
+                    <i class="bi bi-pencil" (click)="editClass()"></i>
+                    <i class="bi bi-trash" (click)="removeClass()"></i>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>

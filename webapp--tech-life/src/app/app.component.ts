@@ -6,5 +6,31 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'webapp--tech-life';
+
+  showAdmPanel = false;
+  showProfPanel = false;
+  showStudentPanel = true;
+  isUserLogged = true;
+  
+  onLogin(user: any) {
+
+    this.isUserLogged = true;
+
+    if (user.role === 'adm') {
+      return this.showAdmPanel = true;
+    }
+
+    if (user.role === 'prof') {
+      return this.showProfPanel = true;
+    }
+
+    return this.showStudentPanel = true;
+  }
+
+  onLogout() {
+    this.showAdmPanel = false;
+    this.showProfPanel = false;
+    this.showStudentPanel = false;
+    this.isUserLogged = false;
+  }
 }
