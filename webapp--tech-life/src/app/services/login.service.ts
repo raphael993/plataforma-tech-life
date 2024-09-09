@@ -1,24 +1,15 @@
 import { Injectable } from '@angular/core';
+import {HttpClient} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   login(user: any): any {
-    const testeUser = {
-      username: 'bia',
-      password: '123',
-      role: 'prof'
-    }
-
-    if (user.username === testeUser.username && user.password === testeUser.password) {
-      return testeUser;
-    }
-
-    return null;
+    return this.http.post('http://localhost:3000/login', user);
   }
 
 

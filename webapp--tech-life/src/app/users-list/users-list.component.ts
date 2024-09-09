@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-users-list',
@@ -7,18 +7,16 @@ import { Component } from '@angular/core';
 })
 export class UsersListComponent {
 
-  userList = [
-    { name: 'Raphael Rosa', email: 'raphael.rosa@techlife.com', role: 'Administrador', active: true},
-    { name: 'Agatha Carvalho', email: 'agatha.carvalho@techlife.com', role: 'Aluno', active: true},
-    { name: 'José Maria', email: 'jose.maria@techlife.com', role: 'Administrador', active: false},
-    { name: 'João Pedro', email: 'joao.pedro@techlife.com', role: 'Professor', active: true},
-  ]
+  @Input() listUsers: Array<any> = [];
+  @Output() removeUser = new EventEmitter();
+  @Output() editUser = new EventEmitter();
 
-  editUser() {
-
+  onEditUser(user: any) {
+    this.editUser.emit(user);
   }
 
-  removeUser() {
-
+  onRemoveUser(_id: string) {
+    this.listUsers = this.listUsers.filter((u) => u._id !== _id);
+    this.removeUser.emit(_id);
   }
 }

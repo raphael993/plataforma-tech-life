@@ -14,7 +14,17 @@
 
         <div class="col-md-9">
             <div class="card p-3">
-                <app-classes-list></app-classes-list>
+                <app-classes-list 
+                    *ngIf="!classData"
+                    [classList]="classList"
+                    (selectClass)="onSelectClass($event)"
+                ></app-classes-list>
+                <app-class-view 
+                    *ngIf="classData"
+                    [classData]="classData"
+                    (close)="onClose()"
+                    (createComment)="createClassesComment($event)"
+                ></app-class-view>
             </div>
         </div>
     </div>

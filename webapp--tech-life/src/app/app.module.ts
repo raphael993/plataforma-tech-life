@@ -13,6 +13,8 @@ import { UsersListComponent } from './users-list/users-list.component';
 import { CreateUserComponent } from './create-user/create-user.component';
 import { CreateClassComponent } from './create-class/create-class.component';
 import { ClassesListComponent } from './classes-list/classes-list.component';
+import { ClassViewComponent } from './class-view/class-view.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -25,12 +27,14 @@ import { ClassesListComponent } from './classes-list/classes-list.component';
     UsersListComponent,
     CreateUserComponent,
     CreateClassComponent,
-    ClassesListComponent
+    ClassesListComponent,
+    ClassViewComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

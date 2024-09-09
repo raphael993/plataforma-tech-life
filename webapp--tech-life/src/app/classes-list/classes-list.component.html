@@ -9,19 +9,12 @@
         <tr>
             <th scope="col">Titulo</th>
             <th scope="col">Descrição</th>
-            <th scope="col">#</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let class of classList;">
-            <th>{{ class.titulo }}</th>
-            <td>{{ class.descricao }}</td>
-            <td>
-                <div class="btn-list">
-                    <i class="bi bi-pencil" (click)="editClass()"></i>
-                    <i class="bi bi-trash" (click)="removeClass()"></i>
-                </div>
-            </td>
+        <tr *ngFor="let class of classList;" (click)="onSelectClass(class)">
+            <th>{{ class.title }}</th>
+            <td>{{ class.description }}</td>
         </tr>
     </tbody>
 </table>

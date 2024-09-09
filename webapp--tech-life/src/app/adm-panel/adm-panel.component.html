@@ -15,8 +15,18 @@
 
         <div class="col-md-9">
             <div class="card p-3">
-                <app-users-list *ngIf="showListUsers"></app-users-list>
-                <app-create-user *ngIf="showAddUser"></app-create-user>
+                <app-users-list 
+                    *ngIf="showListUsers"
+                    [listUsers]="listUsers"
+                    (removeUser)="onRemoveUser($event)"
+                    (editUser)="openUserEdit($event)"
+                ></app-users-list>
+                <app-create-user 
+                    *ngIf="showAddUser"
+                    [updateUserData]="updateUserData"
+                    (createUser)="onCreateUser($event)"
+                    (updateUser)="onUpdateUser($event)"
+                ></app-create-user>
             </div>
         </div>
 

@@ -1,5 +1,7 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { LoginService } from '../services/login.service';
+import { catchError } from 'rxjs/operators';
+import { EMPTY } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +15,7 @@ export class LoginComponent {
   @Output() success = new EventEmitter();
 
   user = {
-    username: null,
+    email: null,
     password: null
   }
 
@@ -22,15 +24,17 @@ export class LoginComponent {
 
 
   login() {
-    this.loggedUser = this.loginService.login(this.user);
-
-    if (this.loggedUser) {
-      return this.success.emit(this.loggedUser);
-    }
-
-    this.showErrorMessage = true;
+    this.loginService.login(this.user)
+      .pipe(catchError((err: any) => {
+        this.showErrorMessage = true;
+        return EMPTY;
+      }))
+      .subscribe((res: any) => {
+      this.loggedUser = res;
+      if (this.loggedUser) {
+        localStorage.setItem('user', JSON.stringify(this.loggedUser));
+        return this.success.emit(this.loggedUser);
+      }
+    });
   }
-
-
-
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
   selector: 'app-classes-list',
@@ -6,18 +6,11 @@ import { Component } from '@angular/core';
   styleUrl: './classes-list.component.css'
 })
 export class ClassesListComponent {
-  classList = [
-    { titulo: 'Turma 1 - Titulo da Aula', descricao: 'Breve descrição sobre a aula ...' },
-    { titulo: 'Turma 1 - Titulo da Aula', descricao: 'Breve descrição sobre a aula ...' },
-    { titulo: 'Turma 1 - Titulo da Aula', descricao: 'Breve descrição sobre a aula ...' },
-    { titulo: 'Turma 1 - Titulo da Aula', descricao: 'Breve descrição sobre a aula ...' },
-  ]
 
-  editClass() {
+  @Output() selectClass = new EventEmitter()
+  @Input() classList: Array<any> = [];
 
-  }
-
-  removeClass() {
-
+  onSelectClass(classData: any) {
+    this.selectClass.emit(classData);
   }
 }
