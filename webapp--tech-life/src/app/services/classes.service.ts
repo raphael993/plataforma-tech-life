@@ -9,22 +9,22 @@ export class ClassesService {
   constructor(private http: HttpClient) { }
 
   getClasses() {
-    return this.http.get('http://localhost:3000/classes');
+    return this.http.get('http://13.37.224.17:3000/classes');
   }
 
   getClass(_id: string) {
-    return this.http.get(`http://localhost:3000/classes/${_id}`);
+    return this.http.get(`http://13.37.224.17:3000/classes/${_id}`);
   }
 
   createClass(classData: any) {
-    return this.http.post(`http://localhost:3000/classes/`, classData);
+    return this.http.post(`http://13.37.224.17:3000/classes/`, classData);
   }
 
   updateClass(_id: string, classData: any) {
-    return this.http.put(`http://localhost:3000/classes/${_id}`, classData);
+    return this.http.put(`http://13.37.224.17:3000/classes/${_id}`, classData);
   }
 
   deleteClass(_id: string) {
-    return this.http.delete(`http://localhost:3000/classes/${_id}`);
+    return this.http.delete(`http://13.37.224.17:3000/classes/${_id}`);
   }
 }

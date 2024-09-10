@@ -29,7 +29,6 @@ export class AdmPanelComponent implements OnInit {
 
   onRemoveUser(_id: string) {
     this.userService.deleteUser(_id).subscribe((res: any) => {
-      
     })
   }
 

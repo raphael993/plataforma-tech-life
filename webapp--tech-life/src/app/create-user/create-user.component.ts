@@ -13,7 +13,7 @@ export class CreateUserComponent implements OnChanges{
   name: string = '';
   email: string = '';
   isActive: boolean = true;
-  role: string = 'Administrador';
+  role: string = '';
   password: string = '';
 
   roleList: Array<string> = ['Administradior', 'Professor', 'Aluno'];

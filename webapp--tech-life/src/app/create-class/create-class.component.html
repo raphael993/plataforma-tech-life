@@ -12,25 +12,25 @@
       <!-- Campo Título da Aula -->
       <div class="mb-3">
         <label for="tituloAula" class="form-label">Título da Aula</label>
-        <input type="text" id="tituloAula" class="form-control" [(ngModel)]="tituloAula" name="tituloAula" required>
+        <input type="text" id="tituloAula" class="form-control" [(ngModel)]="title" name="title" required>
       </div>
       
       <!-- Campo Descrição da Aula -->
       <div class="mb-3">
         <label for="descricaoAula" class="form-label">Descrição da Aula</label>
-        <textarea id="descricaoAula" class="form-control" rows="3" [(ngModel)]="descricaoAula" name="descricaoAula" required></textarea>
+        <textarea id="descricaoAula" class="form-control" rows="3" [(ngModel)]="description" name="description" required></textarea>
       </div>
 
       <!-- Campo Material de Apoio -->
       <div class="mb-3">
         <label for="video" class="form-label">Video da Aula (Link)</label>
-        <input type="text" id="aula" class="form-control" [(ngModel)]="aula" name="aula" required>
+        <input type="text" id="aula" class="form-control" [(ngModel)]="videoUrl" name="videoUrl" required>
       </div>
       
       <!-- Campo Material de Apoio -->
       <div class="mb-3">
         <label for="materialApoio" class="form-label">Material de Apoio (Link)</label>
-        <input type="text" id="materialApoio" class="form-control" [(ngModel)]="materialApoio" name="materialApoio" required>
+        <input type="text" id="materialApoio" class="form-control" [(ngModel)]="resourceList" name="resourceList" required>
       </div>
   
       <!-- Botões -->

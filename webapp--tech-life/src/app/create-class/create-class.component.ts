@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-create-class',
@@ -6,16 +6,25 @@ import { Component } from '@angular/core';
   styleUrl: './create-class.component.css'
 })
 export class CreateClassComponent {
-  tituloAula: string = '';
-  descricaoAula: string = '';
-  materialApoio: string = '';
-  aula: string = '';
+
+  @Output() createClass = new EventEmitter();
+
+  title: string = '';
+  description: string = '';
+  resourceList: string = '';
+  videoUrl: string = '';
 
   onSubmit() {
-    
+    return this.createClass.emit({ 
+      title: this.title,
+      description: this.description,
+      resourceList: [this.resourceList],
+      videoUrl: this.videoUrl,
+      comments: []
+    });
   }
 
   onReset(form: any) {
-    form.resetForm(); // Limpa o formulário
+    form.resetForm();
   }
 }

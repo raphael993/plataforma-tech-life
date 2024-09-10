@@ -27,8 +27,8 @@
       </div>
 
 
-      <select class="custom-select custom-select-lg" [(ngModel)]="role">
-        <option *ngFor="let u of roleList;" [value]="u">{{ u }}</option>
+      <select class="custom-select custom-select-lg" [(ngModel)]="role" id="role" name="role">
+        <option *ngFor="let u of roleList" [value]="u">{{ u }}</option>
       </select>
       
       <!-- Radio Button para Ativo / Desativado -->

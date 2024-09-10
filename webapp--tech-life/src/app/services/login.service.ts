@@ -9,7 +9,7 @@ export class LoginService {
   constructor(private http: HttpClient) { }
 
   login(user: any): any {
-    return this.http.post('http://localhost:3000/login', user);
+    return this.http.post('http://13.37.224.17:3000/login', user);
   }
 
 

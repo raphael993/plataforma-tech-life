@@ -15,8 +15,21 @@
 
         <div class="col-md-9">
             <div class="card p-3">
-                <app-classes-list *ngIf="showListClasses"></app-classes-list>
-                <app-create-class *ngIf="showAddClass"></app-create-class>
+                <app-classes-list 
+                    *ngIf="showListClasses && !classData"
+                    [classList]="classList"
+                    (selectClass)="onSelectClass($event)"
+                ></app-classes-list>
+                <app-create-class 
+                    *ngIf="showAddClass"
+                    (createClass)="onCreateClass($event)"
+                ></app-create-class>
+                <app-class-view 
+                    *ngIf="classData"
+                    [classData]="classData"
+                    (close)="onClose()"
+                    (createComment)="createClassesComment($event)"
+                ></app-class-view>
             </div>
         </div>
     </div>
