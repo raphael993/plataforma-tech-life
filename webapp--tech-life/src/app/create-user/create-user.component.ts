@@ -16,7 +16,7 @@ export class CreateUserComponent implements OnChanges{
   role: string = '';
   password: string = '';
 
-  roleList: Array<string> = ['Administradior', 'Professor', 'Aluno'];
+  roleList: Array<string> = ['Administrador', 'Professor', 'Aluno'];
 
   ngOnChanges(change: SimpleChanges) {
     if (change['updateUserData'].currentValue){
