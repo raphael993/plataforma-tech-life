@@ -1,0 +1,24 @@
+<app-header [isUserLogged]="false"></app-header>
+<div class="container mt-5">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-6">
+            <div class="card px-5 py-5" id="form1">
+                <div class="form-data">
+
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">E-mail</label>
+                        <input [(ngModel)]="user.email" type="email" class="form-control" id="email" placeholder="Digite...">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Senha</label>
+                        <input [(ngModel)]="user.password" type="password" class="form-control" id="password" placeholder="Digite...">
+                    </div>  
+                    
+                    <div class="mb-3"> <button  (click)="login()" class="btn btn-dark w-100">Entrar</button> </div>
+                    <p class="error" *ngIf="showErrorMessage">Login ou senha invalidos, tente novamente</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

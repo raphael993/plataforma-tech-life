@@ -1,0 +1,14 @@
+.btn-list i{
+    color: yellow;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.btn-list i:hover{
+    color: white;
+    margin-left: 10px;
+}
+
+.block {
+    background-color: #ddd;
+}

@@ -1,0 +1,56 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        Criar Usuário
+    </div>
+</nav>
+
+<div class="container mt-5">
+    <h2>Formulário de Cadastro</h2>
+    
+    <form #form="ngForm" (ngSubmit)="onSubmit()">
+      
+      <!-- Campo Nome -->
+      <div class="mb-3">
+        <label for="name" class="form-label">Nome</label>
+        <input type="text" id="name" class="form-control" [(ngModel)]="name" name="nome" required>
+      </div>
+      
+      <!-- Campo E-mail -->
+      <div class="mb-3">
+        <label for="email" class="form-label">E-mail</label>
+        <input type="email" id="email" class="form-control" [(ngModel)]="email" name="email" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="password" class="form-label">Senha</label>
+        <input type="text" id="password" class="form-control" [(ngModel)]="password" name="password" required>
+      </div>
+
+
+      <select class="custom-select custom-select-lg" [(ngModel)]="role" id="role" name="role">
+        <option *ngFor="let u of roleList" [value]="u">{{ u }}</option>
+      </select>
+      
+      <!-- Radio Button para Ativo / Desativado -->
+      <div class="mb-3">
+        <label class="form-label">Status</label>
+        <div>
+          <div class="form-check form-check-inline">
+            <input type="radio" id="ativo" class="form-check-input" [(ngModel)]="isActive" name="isActive" value="true" required>
+            <label for="ativo" class="form-check-label">Ativo</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input type="radio" id="desativado" class="form-check-input" [(ngModel)]="isActive" name="isActive" value="false">
+            <label for="desativado" class="form-check-label">Desativado</label>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Botões -->
+      <div class="mb-3">
+        <button type="submit" class="btn btn-primary me-2" [disabled]="form.invalid">Enviar</button>
+        <button type="button" class="btn btn-secondary" (click)="onReset(form)">Limpar</button>
+      </div>
+      
+    </form>
+  </div>

@@ -1,0 +1,31 @@
+
+<app-header (logout)="onLogout()" [isUserLogged]="true"></app-header>
+
+<div class="container">
+    <h4 class="mt-5">Painel do Aluno</h4>
+    <div class="row mt-5">
+        <div class="col-md-3">
+            <div class="card" style="border: 0;">
+                <div class="d-grid gap-2 p-2">
+                    <button class="btn btn-dark" type="button" [ngClass]="{ 'active': true }">Listar Aulas</button>
+                  </div>
+            </div>
+        </div>
+
+        <div class="col-md-9">
+            <div class="card p-3">
+                <app-classes-list 
+                    *ngIf="!classData"
+                    [classList]="classList"
+                    (selectClass)="onSelectClass($event)"
+                ></app-classes-list>
+                <app-class-view 
+                    *ngIf="classData"
+                    [classData]="classData"
+                    (close)="onClose()"
+                    (createComment)="createClassesComment($event)"
+                ></app-class-view>
+            </div>
+        </div>
+    </div>
+</div>

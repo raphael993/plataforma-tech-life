@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        Lista de Usuários
+    </div>
+</nav>
+
+<table class="table table-dark table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">E-mail</th>
+            <th scope="col">Tipo</th>
+            <th scope="col">#</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of listUsers;">
+            <th>{{ user?.name }}</th>
+            <td>{{ user?.email }}</td>
+            <td>{{ user?.role }}</td>
+            <td>
+                <div class="btn-list">
+                    <i class="bi bi-pencil" (click)="onEditUser(user)"></i>
+                    <i class="bi bi-trash" (click)="onRemoveUser(user._id)"></i>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>

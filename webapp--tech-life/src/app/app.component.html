@@ -1,0 +1,7 @@
+<app-login *ngIf="!isUserLogged" (success)="onLogin($event)"></app-login>
+
+<app-adm-panel *ngIf="showAdmPanel" (logout)="onLogout()"></app-adm-panel>
+
+<app-prof-panel *ngIf="showProfPanel" (logout)="onLogout()"></app-prof-panel>
+
+<app-student-panel *ngIf="showStudentPanel" (logout)="onLogout()"></app-student-panel>

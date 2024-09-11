@@ -1,0 +1,35 @@
+
+<app-header (logout)="onLogout()" [isUserLogged]="true"></app-header>
+
+<div class="container">
+    <h4 class="mt-5">Painel do Administrador</h4>
+    <div class="row mt-5">
+        <div class="col-md-3">
+            <div class="card" style="border: 0;">
+                <div class="d-grid gap-2 p-2">
+                    <button class="btn btn-dark" type="button" [ngClass]="{ 'active': showListUsers }" (click)="onShowListUsers()">Listar Usuários</button>
+                    <button class="btn btn-dark" type="button" [ngClass]="{ 'active': showAddUser }" (click)="onShowAddUser()">Adicionar Usuários</button>
+                  </div>
+            </div>
+        </div>
+
+        <div class="col-md-9">
+            <div class="card p-3">
+                <app-users-list 
+                    *ngIf="showListUsers"
+                    [listUsers]="listUsers"
+                    (removeUser)="onRemoveUser($event)"
+                    (editUser)="openUserEdit($event)"
+                ></app-users-list>
+                <app-create-user 
+                    *ngIf="showAddUser"
+                    [updateUserData]="updateUserData"
+                    (createUser)="onCreateUser($event)"
+                    (updateUser)="onUpdateUser($event)"
+                ></app-create-user>
+            </div>
+        </div>
+
+        
+    </div>
+</div>

@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        Criar Aula
+    </div>
+</nav>
+
+<div class="container mt-5">
+    <h2>Cadastro de Aula</h2>
+    
+    <form #form="ngForm" (ngSubmit)="onSubmit()">
+      
+      <!-- Campo Título da Aula -->
+      <div class="mb-3">
+        <label for="tituloAula" class="form-label">Título da Aula</label>
+        <input type="text" id="tituloAula" class="form-control" [(ngModel)]="title" name="title" required>
+      </div>
+      
+      <!-- Campo Descrição da Aula -->
+      <div class="mb-3">
+        <label for="descricaoAula" class="form-label">Descrição da Aula</label>
+        <textarea id="descricaoAula" class="form-control" rows="3" [(ngModel)]="description" name="description" required></textarea>
+      </div>
+
+      <!-- Campo Material de Apoio -->
+      <div class="mb-3">
+        <label for="video" class="form-label">Video da Aula (Link)</label>
+        <input type="text" id="aula" class="form-control" [(ngModel)]="videoUrl" name="videoUrl" required>
+      </div>
+      
+      <!-- Campo Material de Apoio -->
+      <div class="mb-3">
+        <label for="materialApoio" class="form-label">Material de Apoio (Link)</label>
+        <input type="text" id="materialApoio" class="form-control" [(ngModel)]="resourceList" name="resourceList" required>
+      </div>
+  
+      <!-- Botões -->
+      <div class="mb-3">
+        <button type="submit" class="btn btn-primary me-2" [disabled]="form.invalid">Enviar</button>
+        <button type="button" class="btn btn-secondary" (click)="onReset(form)">Limpar</button>
+      </div>
+      
+    </form>
+  </div>
