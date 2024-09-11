@@ -13,7 +13,7 @@
 <h4>{{ classData?.description }}</h4>
 
 <div class="row">
-    <video width="640" height="360" controls>
+    <video (click)="redirectToLink(classData?.videoUrl)" width="640" height="360" controls>
         <source [src]="classData?.videoUrl" type="video/mp4">
         Seu navegador não suporta a tag de vídeo.
     </video>

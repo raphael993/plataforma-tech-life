@@ -26,6 +26,10 @@ export class ClassViewComponent {
     this.comment = '';
   }
 
+  redirectToLink(url: string) {
+    window.open(url, '_blank');
+  }
+
   onClose() {
     this.close.emit();
   }
