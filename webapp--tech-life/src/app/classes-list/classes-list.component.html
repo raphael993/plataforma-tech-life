@@ -9,14 +9,14 @@
         <tr>
             <th scope="col">Titulo</th>
             <th scope="col">Descrição</th>
-            <th scope="col">#</th>
+            <th *ngIf="allowEdition" scope="col">#</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let class of classList;">
             <th (click)="onSelectClass(class)">{{ class.title }}</th>
             <td (click)="onSelectClass(class)">{{ class.description }}</td>
-            <td>
+            <td *ngIf="allowEdition">
                 <div class="btn-list">
                     <i class="bi bi-pencil" (click)="onEditClass(class)"></i>
                     <i class="bi bi-trash" (click)="onRemoveClass(class._id)"></i>
