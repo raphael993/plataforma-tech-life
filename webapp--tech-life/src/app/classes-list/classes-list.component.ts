@@ -7,10 +7,21 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
 })
 export class ClassesListComponent {
 
-  @Output() selectClass = new EventEmitter()
+  @Output() selectClass = new EventEmitter();
   @Input() classList: Array<any> = [];
+  @Output() removeClass = new EventEmitter();
+  @Output() editClass = new EventEmitter();
 
-  onSelectClass(classData: any) {
+  onEditClass(classData: any) {
+    this.editClass.emit(classData);
+  }
+
+  onRemoveClass(_id: string): void {
+    this.classList = this.classList.filter((u) => u._id !== _id);
+    this.removeClass.emit(_id);
+  }
+
+  onSelectClass(classData: any): void {
     this.selectClass.emit(classData);
   }
 }

@@ -10,15 +10,15 @@ export class ProfPanelComponent implements OnInit {
   @Output() logout = new EventEmitter();
 
   constructor(
-    private classService: ClassesService,
-    private classesService: ClassesService
+    private classService: ClassesService
   ) { }
 
   showListClasses = true;
   showAddClass = false;
 
   classData = null;
-  classList: Array<any> = [];;
+  classList: Array<any> = [];
+  updateClassData: any;
 
   ngOnInit() {
     this.classService.getClasses().subscribe((result: any) => {
@@ -38,7 +38,7 @@ export class ProfPanelComponent implements OnInit {
   }
 
   createClassesComment(data: any) {
-    this.classesService.updateClass(data.classData._id, data.classData).subscribe((res: any) => {
+    this.classService.updateClass(data.classData._id, data.classData).subscribe((res: any) => {
     })
   }
 
@@ -47,10 +47,41 @@ export class ProfPanelComponent implements OnInit {
   }
 
   onCreateClass(classData: any) {
-    this.classesService.createClass(classData).subscribe((res: any) => {
+    this.classService.createClass(classData).subscribe((res: any) => {
       this.classList.push(classData);
       this.onShowListClasses();
     })
+  }
+
+  onUpdateClass(classData: any) {
+    this.classService.updateClass(classData._id, classData).subscribe((res: any) => {
+      this.updateClassData = null;
+      const index = this.classList.findIndex(c => classData._id === c._id);
+      if (index !== -1 && res) {
+        this.classList[index] = classData;
+      }
+      
+      this.onShowListClasses();
+    });
+  }
+
+  onRemoveClass(_id: string) {
+    this.classService.deleteClass(_id).subscribe((res: any) => {
+    })
+  }
+
+  openClassEdit(classData: any) {
+    this.updateClassData = classData;
+    this.showListClasses = false;
+    this.showAddClass = true;
+  }
+
+  onEditClass(classData: any) {
+    this.classService.updateClass(classData._id, classData).subscribe((res: any) => {
+      this.updateClassData = null;
+      this.showListClasses = true;
+      this.showAddClass = false;
+    });
   }
 
   onClose() {

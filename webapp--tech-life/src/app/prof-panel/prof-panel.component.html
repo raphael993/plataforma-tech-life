@@ -19,10 +19,14 @@
                     *ngIf="showListClasses && !classData"
                     [classList]="classList"
                     (selectClass)="onSelectClass($event)"
+                    (removeClass)="onRemoveClass($event)"
+                    (editClass)="openClassEdit($event)"
                 ></app-classes-list>
                 <app-create-class 
                     *ngIf="showAddClass"
+                    [updateClassData]="updateClassData"
                     (createClass)="onCreateClass($event)"
+                    (updateClass)="onUpdateClass($event)"
                 ></app-create-class>
                 <app-class-view 
                     *ngIf="classData"

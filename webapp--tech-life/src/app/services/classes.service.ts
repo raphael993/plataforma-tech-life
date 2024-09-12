@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -9,22 +10,22 @@ export class ClassesService {
   constructor(private http: HttpClient) { }
 
   getClasses() {
-    return this.http.get('http://13.37.224.17:3000/classes');
+    return this.http.get(`${environment.api}/classes`);
   }
 
   getClass(_id: string) {
-    return this.http.get(`http://13.37.224.17:3000/classes/${_id}`);
+    return this.http.get(`${environment.api}/classes/${_id}`);
   }
 
   createClass(classData: any) {
-    return this.http.post(`http://13.37.224.17:3000/classes/`, classData);
+    return this.http.post(`${environment.api}/classes/`, classData);
   }
 
   updateClass(_id: string, classData: any) {
-    return this.http.put(`http://13.37.224.17:3000/classes/${_id}`, classData);
+    return this.http.put(`${environment.api}/classes/${_id}`, classData);
   }
 
   deleteClass(_id: string) {
-    return this.http.delete(`http://13.37.224.17:3000/classes/${_id}`);
+    return this.http.delete(`${environment.api}/classes/${_id}`);
   }
 }
