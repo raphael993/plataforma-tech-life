@@ -9,9 +9,9 @@ import { ClassesService } from './services/classes.service';
 export class AppComponent {
 
   showAdmPanel = false;
-  showProfPanel = true;
+  showProfPanel = false;
   showStudentPanel = false;
-  isUserLogged = true;
+  isUserLogged = false;
   
   onLogin(user: any) {
 
