@@ -23,7 +23,7 @@
     <h3>Materiais complementares</h3>
 
     <ul *ngFor="let resource of classData?.resourceList">
-        <li><a href="#">{{ resource }}</a></li>
+        <li><a [href]="resource" target="_blank">{{ resource }}</a></li>
     </ul>
 </div>
 
