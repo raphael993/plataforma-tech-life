@@ -19,11 +19,13 @@ export class ProfPanelComponent implements OnInit {
   classData = null;
   classList: Array<any> = [];
   updateClassData: any;
+  loggedUser: any;
 
   ngOnInit() {
     this.classService.getClasses().subscribe((result: any) => {
       this.classList = result;
     })
+    this.loggedUser = JSON.parse(localStorage.getItem('user') || '{}');
   }
 
   onShowListClasses() {

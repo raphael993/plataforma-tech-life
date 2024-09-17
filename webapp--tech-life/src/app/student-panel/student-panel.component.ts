@@ -11,11 +11,13 @@ export class StudentPanelComponent implements OnInit {
 
   classData = null;
   classList = [];
+  loggedUser: any;
 
   constructor(private classesService: ClassesService) {}
 
   ngOnInit() {
     this.getClasses();
+    this.loggedUser = JSON.parse(localStorage.getItem('user') || '{}');
   }
 
   getClasses() {

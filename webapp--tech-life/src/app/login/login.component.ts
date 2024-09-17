@@ -26,7 +26,7 @@ export class LoginComponent {
   login() {
     this.loginService.login(this.user)
       .pipe(catchError((err: any) => {
-        this.showErrorMessage = true;
+        this.showErrorMessage = err.error.message;
         return EMPTY;
       }))
       .subscribe((res: any) => {

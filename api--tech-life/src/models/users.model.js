@@ -8,7 +8,7 @@ const usersSchema = new mongoose.Schema(
         role: { type: String, required: true },
         isActive: { type: String, required: true },
         password: { type: String, required: true },
-    }
+    }, { timestamps: true }
 )
 
 const users = mongoose.model('users', usersSchema)

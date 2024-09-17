@@ -14,12 +14,12 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let user of listUsers;">
+        <tr *ngFor="let user of listUsers; let i=index;" id="user_{{i}}">
             <th>{{ user?.name }}</th>
             <td>{{ user?.email }}</td>
             <td>{{ user?.role }}</td>
             <td>
-                <div class="btn-list">
+                <div class="btn-list" id="bt-user_{{i}}">
                     <i class="bi bi-pencil" (click)="onEditUser(user)"></i>
                     <i class="bi bi-trash" (click)="onRemoveUser(user._id)"></i>
                 </div>

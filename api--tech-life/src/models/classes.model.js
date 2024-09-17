@@ -8,7 +8,7 @@ const classesSchema = new mongoose.Schema(
         videoUrl: { type: String, required: true },
         resourceList: { type: Array, required: true },
         comments: { type: Array, required: true },
-    }
+    }, { timestamps: true }
 )
 
 const classes = mongoose.model('classes', classesSchema)

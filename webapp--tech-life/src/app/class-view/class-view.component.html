@@ -39,6 +39,7 @@
 
     <ul id="commentList" class="list-group">
         <li class="list-group-item" *ngFor="let c of classData?.comments">
+           <span class="comment-data" *ngIf="c.date">{{ c.date | date: 'dd/MM/yyyy - HH:mm' }}</span>
             <strong>{{ c.user }}</strong> diz:<br>
             <p>{{ c.comment }}</p>
         </li>

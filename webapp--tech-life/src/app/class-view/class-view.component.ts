@@ -17,7 +17,8 @@ export class ClassViewComponent {
     const loggedUser = JSON.parse(localStorage.getItem('user') || '{}');
     const commentObj = {
       user: loggedUser?.name ?? '',
-      comment: this.comment
+      comment: this.comment,
+      date: new Date()
     }
 
     this.classData.comments.push(commentObj);

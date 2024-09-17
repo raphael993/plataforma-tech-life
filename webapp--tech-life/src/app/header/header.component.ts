@@ -9,7 +9,7 @@ export class HeaderComponent {
   @Output() logout = new EventEmitter();
   @Input() isUserLogged: boolean = false;
 
-  version: string = 'v1.0.2';
+  version: string = 'v1.0.3';
 
   onLogout() {
     this.logout.emit();
