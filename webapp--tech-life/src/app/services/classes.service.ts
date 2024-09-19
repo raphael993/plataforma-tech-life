@@ -26,6 +26,7 @@ export class ClassesService {
   }
 
   deleteClass(_id: string) {
-    return this.http.delete(`${environment.api}/classes/${_id}`);
+    const user = JSON.parse(localStorage.getItem('user') || '{}').name;
+    return this.http.delete(`${environment.api}/classes/${_id}/${user}`);
   }
 }

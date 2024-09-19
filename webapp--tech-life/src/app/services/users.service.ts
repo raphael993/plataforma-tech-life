@@ -26,6 +26,7 @@ export class UsersService {
   }
 
   deleteUser(_id: string) {
-    return this.http.delete(`${environment.api}/users/${_id}`);
+    const user = JSON.parse(localStorage.getItem('user') || '{}').name;
+    return this.http.delete(`${environment.api}/users/${_id}/${user}`);
   }
 }

@@ -1,4 +1,5 @@
 const users = require('../models/users.model.js');
+const logs = require('../models/logs.model.js');
 
 class UsersController {
     static getUsers = async (req, res) => {
@@ -49,9 +50,15 @@ class UsersController {
 
     static deleteUser = async(req, res) => {
         const _id = req.params.id;
+        const _user = req.params.user;
 
         try {
+            const userToBeRemoved = await users.find({ _id });
             await users.deleteOne({ _id });
+            await logs.insertMany([{
+                action: `REMOVE USER: ${userToBeRemoved[0]?.name}`,
+                user: _user
+            }]);
             res.status(201).send('user removed');
         } catch(err) {
             console.log(err)

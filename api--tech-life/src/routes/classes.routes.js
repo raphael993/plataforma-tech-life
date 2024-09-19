@@ -8,6 +8,6 @@ router
     .get('/:id', ClassesController.getClass)
     .post('/', ClassesController.createClass)
     .put('/:id', ClassesController.updateClass)
-    .delete('/:id', ClassesController.deleteClass)
+    .delete('/:id/:user', ClassesController.deleteClass)
 
 module.exports = router;

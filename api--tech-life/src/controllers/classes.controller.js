@@ -1,4 +1,5 @@
 const classes = require('../models/classes.model.js');
+const logs = require('../models/logs.model.js');
 
 class ClassesController {
     static getClasses = async (req, res) => {
@@ -49,9 +50,15 @@ class ClassesController {
 
     static deleteClass = async(req, res) => {
         const _id = req.params.id;
+        const _user = req.params.user;
 
         try {
+            const classToBeRemoved = await classes.find({ _id });
             await classes.deleteOne({ _id });
+            await logs.insertMany([{
+                action: `REMOVE CLASS: ${classToBeRemoved[0]?.title}`,
+                user: _user
+            }]);
             res.status(201).send('class removed');
         } catch(err) {
             console.log(err)
